@@ -1,0 +1,66 @@
+.portfolio__list {
+    margin: 0 0 0 rem(-10px);
+}
+
+.portfolio__item {
+    width: rem(220px);
+    border-radius: rem(10px);
+    overflow: hidden;
+    display: inline-block;
+    margin: 0 0 rem(10px) rem(10px);
+    @include box-shadow (0 1px 3px 0 rgba(#000, .2));
+    transition: box-shadow .4s;
+
+    @include phone {
+      display: block;
+      margin: 0 auto 15px auto;
+    }
+
+    &:hover {
+        @include box-shadow (0 4px 8px 0 rgba(#000, .2));
+
+        .portfolio__title {
+            color: $red;
+        }
+    }
+}
+
+.portfolio__link {
+    display: block;
+
+}
+
+.portfolio__pic {
+    height: rem(118px);
+}
+
+.portfolio__pic-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.portfolio__desc {
+    padding: rem(20px);
+    background: #fff;
+
+}
+
+.portfolio__title {
+    font-size: rem(21px);
+    color: $blue;
+    transition: color .2s;
+}
+
+.portfolio__text {
+    font-size: rem(14px);
+    color: $dark-grey;
+}
+
+.portfolio__type {
+    font-size: rem(14px);
+    color: $grey;
+    padding-top: rem(15px);
+    padding-left: rem(25px);
+    background: url("/images/icons/portfolio-type-icon.png") 0 rem(14px) no-repeat;
+}

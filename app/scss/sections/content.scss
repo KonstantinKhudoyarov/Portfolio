@@ -1,0 +1,229 @@
+.maincontent {
+    padding-bottom: rem(30px);
+}
+
+.content {
+    .container {
+        @extend %clearfix;
+    }
+}
+
+.sidebar {
+    width: rem(220px);
+    float: left;
+
+    @include tablet {
+      width: 100%;
+      float: none;
+      margin-bottom: rem(40px);
+    }
+
+    @include phone {
+      margin-bottom: 5px;
+    }
+}
+
+.nav__list {
+  @include phone {
+    text-align: justify;
+    &::after {
+      content: '';
+      display: inline-block;
+      width: 100%;
+    }
+  }
+}
+
+.nav__item{
+  @include tablet {
+    display: inline-block;
+  }
+}
+
+.nav__link {
+    color: $dark-grey;
+    font-size: rem(18px);
+    padding: rem(10px) rem(20px) rem(10px) 0;
+    text-align: right;
+    display: block;
+    border-right: rem(5px) solid transparent;
+    cursor: pointer;
+    transition: border-color .2s;
+
+    @include tablet {
+      border: 0;
+    }
+
+    &:hover {
+        border-color: $blue;
+        }
+}
+
+.link__text {
+    display: inline-block;
+    padding: 4px 0 4px rem(23px);
+    transition: .2s;
+
+    @include phone {
+      padding: 0;
+    }
+}
+
+@each $icon in (about, career, portfolio) {
+  .nav__link_#{$icon}{
+    .link__text {
+      background: url('/images/icons/#{$icon}.png') 0 5px no-repeat;
+
+      @include phone {
+        background: none;
+      }
+    }
+    &:hover{
+       .link__text {
+        background: url('/images/icons/#{$icon}-hover.png') 0 5px no-repeat;
+        color: $blue;
+
+        @include phone {
+          background: none;
+        }
+      }
+    }
+  }
+  .nav__link_#{$icon}-active{
+    color: $blue;
+    font-weight: 700;
+    border-color: $blue;
+    .link__text {
+        background: url('/images/icons/#{$icon}-hover.png') 0 5px no-repeat;
+
+        @include phone {
+          background: none;
+        }
+    }
+  }
+}
+
+.page-content {
+    float: right;
+    width: rem(700px);
+
+    @include laptop {
+      width: rem(550px);
+    }
+    @include tablet {
+      width: 100%;
+      float: none;
+    }
+}
+
+.about {
+  @extend %clearfix;
+}
+
+.about__left {
+    width: 40%;
+    float: left;
+
+    @include phone {
+      width: 171px;
+      float: none;
+      margin: 0 auto 10px auto;
+    }
+}
+
+.about__pic {
+    width: rem(210px);
+    height: rem(210px);
+    border-radius: 50%;
+    overflow: hidden;
+    border: rem(5px) solid #fff;
+}
+
+.about__pic-img {
+    display: block;
+    max-width: 100%;
+}
+
+.about__right {
+    width: 60%;
+    float: right;
+
+    @include phone {
+      width: 80%;
+      float: none;
+      margin: 0 auto;
+    }
+}
+
+.title_margined {
+  margin-bottom: rem(20px);
+}
+
+.title h1 {
+  font-size: rem(35px);
+
+  @include phone {
+    text-align: center;
+    margin-bottom: 0;
+  }
+}
+
+.about__desc {
+  margin-bottom: rem(25px);
+}
+
+.about__desc p:first-child {
+  margin-bottom: rem(15px);
+}
+
+.about__btns {
+    text-align: right;
+
+    @include phone {
+      text-align: center;
+    }
+}
+
+.btn {
+    position: relative;
+    display: inline-block;
+    padding: rem(12px) rem(25px) rem(11px) rem(23px);
+    font-size: rem(14px);
+    color: $red;
+    border: 2px solid $red;
+    border-radius: 35px;
+    transition: .2s;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 100%;
+      bottom: 0;
+      left: 0;
+      z-index: -1;
+      display: block;
+      background-color: $red;
+      transition: right .2s;
+    }
+
+    &:hover {
+      color: $white;
+
+      &::before {
+        right: 0;
+      }
+
+      .btn__text {
+      background: url('/images/icons/download-hover.png') 0 1.2px no-repeat;
+      transition: background .2s;
+      }
+    }
+}
+
+.btn__text {
+    display: inline-block;
+    padding-left: rem(20px);
+    background: url('/images/icons/download.png') 0 1.2px no-repeat;
+}

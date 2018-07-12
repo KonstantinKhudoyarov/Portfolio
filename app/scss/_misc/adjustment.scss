@@ -1,0 +1,99 @@
+/* adjustment vars */
+
+$footer-height: 70px;
+$container-width: 960px;
+
+/* adjustment styles */
+
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,700|Open+Sans:400,700&subset=cyrillic');
+
+html {
+  font-size: 16px;
+
+
+  @include laptop {
+    font-size: 15px;
+  }
+  @include tablet {
+    font-size: 14px;
+  }
+  @include phone {
+    font-size: 13px;
+  }
+
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    line-height: 1.42;
+    -webkit-font-smoothing: antialiased;
+    background: $white;
+    font-family: 'Fira Sans';
+}
+
+li {
+    list-style: none;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+p {
+  margin: 0;
+}
+
+.container {
+    max-width: $container-width;
+    margin: 0 auto;
+
+    @include desktop {
+      max-width: 970px;
+    }
+    @include laptop {
+      max-width: 750px;
+    }
+    @include tablet {
+      max-width: 480px;
+    }
+    @include phone {
+      max-width: 95%;
+    }
+
+}
+
+.wrapper {
+    min-height: 100%;
+    position: relative;
+    overflow: hidden;
+    &:after {
+    content: "";
+    display: block;
+    height: $footer-height;
+    }
+}
+
+.footer {
+    height: $footer-height;
+    width: 100%;
+    margin-top: -$footer-height;
+    position: relative;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    font-weight: normal;
+}

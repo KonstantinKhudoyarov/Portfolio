@@ -1,0 +1,18 @@
+.kk {
+  color: $grey;
+}
+
+.kk__logo {
+  width: 30px;
+  height: 30px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
+  border: 1px solid $grey;
+  border-radius: 50%;
+
+  &::before {
+    content: "|<";
+  }
+}

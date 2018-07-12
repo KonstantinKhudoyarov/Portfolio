@@ -1,0 +1,150 @@
+.career {
+  @extend %clearfix;
+}
+
+.career__left {
+    float: left;
+    width: 40%;
+
+    @include phone {
+      float: none;
+      margin: 0 auto;
+    }
+}
+
+.career__pic {
+    max-width: rem(232px);
+    border-radius: 10%;
+    overflow: hidden;
+    display: inline-block;
+    border: rem(5px) solid #fff;
+
+    @include laptop {
+      max-width: 12.5rem;
+    }
+}
+
+.career__pic-img {
+    display: block;
+    max-width: 100%;
+}
+
+.career__right {
+    float: right;
+    width: 60%;
+    margin-top: rem(30px);
+
+    @include phone {
+      float: none;
+      margin: 10px auto 0 auto;
+    }
+}
+
+.career__item {
+    text-align: right;
+    margin-bottom: rem(20px);
+
+    &:first-child {
+        .career__block {
+            &:before {
+                display: none;
+            }
+        }
+    }
+    &:last-child {
+        .career__block {
+            &:after {
+                display: none;
+            }
+        }
+    }
+}
+
+.career__block {
+    width: rem(330px);
+    background: #fff;
+    display: inline-block;
+    padding: rem(18px) 0 rem(18px) rem(18px);
+    position: relative;
+    text-align: left;
+    border-radius: rem(7px);
+    @include box-shadow (0 1px 3px 0 rgba(#000, .2));
+    transition: .2s;
+
+    @include laptop {
+      width: 16.625rem;
+    }
+
+    &:before, &:after {
+        content: "";
+        display: block;
+        width: 1px;
+        background: #ddd;
+        position: absolute;
+        left: rem(-30px);
+    }
+
+    &:before {
+        top: 0;
+        bottom: 50%;
+        margin-bottom: rem(10px);
+    }
+
+    &:after {
+        top: 50%;
+        bottom: rem(-22px);
+        margin-top: rem(10px);
+    }
+
+    &:hover {
+        background: $blue;
+
+        .career__title, .career__occ, .career__date {
+            color: #fff;
+        }
+
+        .career__year {
+            font-size: rem(18px);
+            color: $blue;
+
+            &:after {
+                border: 4px solid #94e0f2;
+                right: rem(-22px);
+                top: rem(11px);
+            }
+        }
+    }
+}
+
+.career__title {
+    color: $dark-grey;
+    font-size: rem(21px);
+}
+
+.career__occ, .career__date {
+    color: $grey;
+}
+
+.career__year {
+    color: $dark-grey;
+    position: absolute;
+    right: 100%;
+    top: 50%;
+    line-height: rem(30px);
+    margin-top: rem(-15px);
+    margin-right: rem(43px);
+    transition: .2s;
+
+    &:after {
+        content: "";
+        width: rem(10px);
+        height: rem(10px);
+        background: $blue;
+        border-radius: 50%;
+        position: absolute;
+        right: rem(-19px);
+        top: 50%;
+        margin-top: rem(-5px);
+        z-index: 1;
+    }
+}

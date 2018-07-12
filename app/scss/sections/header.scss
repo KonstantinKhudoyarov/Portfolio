@@ -1,0 +1,202 @@
+  .header {
+    height: rem(80px);
+    background: #fff;
+    @include box-shadow (0 1px 3px 0 rgba(#000, .2));
+    margin-bottom: rem(17px);
+
+    .container {
+      @extend %clearfix;
+    }
+}
+
+.header__left {
+    float: left;
+    width: 50%;
+    line-height: rem(80px);
+}
+
+.user__avatar {
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #d6d6d6;
+    @include inline-block(middle);
+}
+
+.user__link {
+  display: block;
+  width: 60px;
+  height: 60px;
+}
+
+.user__avatar-img {
+    display: block;
+    max-width: 100%;
+}
+
+.user__username {
+    @include inline-block(middle);
+    color: $dark-grey;
+
+    @include phone {
+      line-height: 1.2;
+      width: 80px;
+    }
+}
+
+.header__right {
+    float: left;
+    width: 50%;
+    line-height: rem(80px);
+    text-align: right;
+
+    @include phone {
+      line-height: .7;
+    }
+}
+
+.contacts__wrap {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.contacts__list {
+  @include phone {
+    display: none;
+  }
+}
+
+.contacts__item {
+    line-height: 1.4;
+    color: $blue;
+    font-weight: 700;
+    font-size: rem(18px);
+    position: relative;
+    background: url('/images/decor/dot.png') bottom repeat-x;
+    transition: color .2s;
+
+    &:hover {
+        color: $red;
+        background: url('/images/decor/dot-hover.png') bottom repeat-x;
+    }
+
+    &:hover > .contacts__sublist {
+        left: 0;
+        transform: translateX(-25%);
+        opacity: 1;
+    }
+
+    @include tablet {
+      left: -60px;
+    }
+}
+
+.contacts__sublist {
+      width: rem(235px);
+      background: #fff;
+      border: 1px solid #dedede;
+      position: absolute;
+      border-radius: 10px;
+      z-index: 1000;
+      top: 170%;
+      left: -9999px;
+      opacity: 0;
+      transition: opacity .5s;
+
+      &::before {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 35px;
+        top: -30px;
+      }
+}
+
+.triangle {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 0;
+    border-right: rem(8px) solid transparent;
+    border-bottom: rem(11px) solid #dedede;
+    border-left: rem(8px) solid transparent;
+    bottom: 100%;
+    left: 50%;
+    margin-left: rem(-8px);
+
+    &::after {
+        content: "";
+        position: absolute;
+        height: 0;
+        border-top: 0;
+        border-right: rem(7px) solid transparent;
+        border-bottom: rem(11px) solid #fff;
+        border-left: rem(7px) solid transparent;
+        left: rem(-7px);
+    }
+}
+
+.contacts__subitem {
+    position: relative;
+    padding: rem(10px) 0 rem(10px) rem(35px);
+    line-height: 1.3;
+    font-size: rem(16px);
+    font-weight: 400;
+    text-align: left;
+    transition: background-color .2s;
+    border-radius: 7px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 100%;
+      bottom: 0;
+      left: 0;
+      z-index: -1;
+      background-color: $red;
+      border-radius: 7px;
+      transition: right .2s;
+    }
+
+    &:hover {
+
+      &::before {
+        right: 0;
+      }
+    }
+
+    &:hover .contacts__subitem-link {
+      color: #fff;
+    }
+}
+
+.contacts__subitem-link {
+  color: $dark-grey;
+  transition: color .2s;
+}
+
+.contacts__subitem_email {
+    background: url('/images/icons/email.png') rem(10px) rem(11px) no-repeat;
+}
+
+.contacts__subitem_phone {
+    background: url('/images/icons/phone.png') rem(10px) rem(10px) no-repeat;
+}
+
+.contacts__subitem_skype {
+    background: url('/images/icons/skype.png') rem(10px) rem(10px) no-repeat;
+}
+
+
+.contacts__phone {
+  display: none;
+
+  @include phone {
+    display: block;
+    width: 50px;
+    height: 50px;
+    background: url('../images/icons/phone-head.png') 0 0 no-repeat;
+    margin-top: 15px;
+  }
+}
